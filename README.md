@@ -52,9 +52,9 @@ Use the script:
 
 Or manually run for each PHP version:
 ```bash
-docker-compose run --rm php73 php test-async.php
-docker-compose run --rm php82 php test-async.php
-docker-compose run --rm php83 php test-async.php
+docker-compose run --rm php73 php test-async-73.php
+docker-compose run --rm php82 php test-async-82.php
+docker-compose run --rm php83 php test-async-83.php
 ```
 
 > You **no longer need** `-dxdebug.remote_host=...`.
