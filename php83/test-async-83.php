@@ -12,6 +12,8 @@ $start = microtime(true);
 // Build all promises first
 $promises = [];
 for ($i = 0; $i < 6; $i++) {
+    $ts = date('H:i:s');
+    echo "⏳ [$ts] Dispatching request #$i\n";
     $promises[$i] = $client->getAsync('http://mock-server/sleep.php');
 }
 
@@ -23,10 +25,11 @@ $end = microtime(true);
 echo "\n";
 
 foreach ($results as $i => $result) {
+    $ts = date('H:i:s');
     if ($result['state'] === 'fulfilled') {
-        echo "✅ Request #$i status: " . $result['value']->getStatusCode() . "\n";
+        echo "✅ [$ts] Request #$i status: " . $result['value']->getStatusCode() . "\n";
     } else {
-        echo "❌ Request #$i failed: " . $result['reason'] . "\n";
+        echo "❌ [$ts] Request #$i failed: " . $result['reason'] . "\n";
     }
 }
 
