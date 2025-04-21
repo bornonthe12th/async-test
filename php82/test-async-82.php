@@ -26,12 +26,20 @@ echo "\n";
 
 foreach ($results as $i => $result) {
     $ts = date('H:i:s');
+
     if ($result['state'] === 'fulfilled') {
-        echo "✅ [$ts] Request #$i status: " . $result['value']->getStatusCode() . "\n";
+        $body = json_decode((string) $result['value']->getBody(), true);
+        $serverTs = $body['time'] ?? 'n/a';
+        $serverPid = $body['handled_by'] ?? 'n/a';
+
+        echo "✅ [$ts] Request #$i status: " . $result['value']->getStatusCode() .
+            " | Server: [$serverTs][PID $serverPid]\n";
     } else {
         echo "❌ [$ts] Request #$i failed: " . $result['reason'] . "\n";
     }
 }
+
+
 
 $total = round($end - $start, 2);
 echo "\n⏱️ Total time: {$total} seconds\n";
