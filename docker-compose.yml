@@ -8,8 +8,6 @@ services:
       - ./php73:/app
     working_dir: /app
     tty: true
-    ports:
-      - "9003:9003"
     environment:
       PHP_IDE_CONFIG: "serverName=async-server"
     extra_hosts:
@@ -22,8 +20,6 @@ services:
       - ./php82:/app
     working_dir: /app
     tty: true
-    ports:
-      - "9003:9003"
     environment:
       PHP_IDE_CONFIG: "serverName=async-server"
     extra_hosts:
@@ -36,9 +32,13 @@ services:
       - ./php83:/app
     working_dir: /app
     tty: true
-    ports:
-      - "9003:9003"
     environment:
       PHP_IDE_CONFIG: "serverName=async-server"
     extra_hosts:
       - "host.docker.internal:host-gateway"
+
+  mock-server:
+    build:
+      context: ./mock-server
+    ports:
+      - "8000:80"
