@@ -8,10 +8,12 @@ echo "🚀 Running async test for PHP versions: ${VERSIONS[*]}"
 echo
 
 for version in "${VERSIONS[@]}"; do
-  test_file="test-async-${version}.php"
+  version_suffix=$(echo "$version" | sed 's/php//')
+  test_file="test-async-${version_suffix}.php"
+  test_path="$version/$test_file"
 
-  if [[ ! -f "$version/$test_file" ]]; then
-    echo "❌ Test file '$version/$test_file' not found. Skipping $version."
+  if [[ ! -f "$test_path" ]]; then
+    echo "❌ Test file '$test_path' not found. Skipping $version."
     continue
   fi
 
@@ -28,3 +30,4 @@ for version in "${VERSIONS[@]}"; do
 done
 
 echo "✅ All versions completed."
+
