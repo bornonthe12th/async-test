@@ -1,0 +1,28 @@
+# Node
+node_modules/
+
+# Composer
+/vendor/
+/composer.lock
+
+# PHPStorm
+.idea/
+*.iml
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+/tmp/xdebug.log
+
+# Docker
+.env
+*.pid
+*.sock
+
+# Project artifacts
+php73/vendor/
+/php82/vendor/
+/php83/vendor/

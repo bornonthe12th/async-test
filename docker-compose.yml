@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  php73:
+    build:
+      context: ./php73
+    volumes:
+      - ./php73:/app
+    working_dir: /app
+    tty: true
+    ports:
+      - "9003:9003"
+    environment:
+      PHP_IDE_CONFIG: "serverName=async-server"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  php82:
+    build:
+      context: ./php82
+    volumes:
+      - ./php82:/app
+    working_dir: /app
+    tty: true
+    ports:
+      - "9003:9003"
+    environment:
+      PHP_IDE_CONFIG: "serverName=async-server"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  php83:
+    build:
+      context: ./php83
+    volumes:
+      - ./php83:/app
+    working_dir: /app
+    tty: true
+    ports:
+      - "9003:9003"
+    environment:
+      PHP_IDE_CONFIG: "serverName=async-server"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
