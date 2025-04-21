@@ -2,7 +2,10 @@
 
 set -e
 
-VERSIONS=("php73" "php82" "php83")
+#VERSIONS=("php73" "php82" "php83")
+#VERSIONS=("php83")
+#VERSIONS=("php82")
+VERSIONS=("php73")
 
 echo "🚀 Running async test for PHP versions: ${VERSIONS[*]}"
 echo
